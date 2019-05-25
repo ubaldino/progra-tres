@@ -1,12 +1,10 @@
 import java.lang.reflect.Array;
-import java.util.ArrayList;
-
 /**
  * @author ubaldino zurita
  *
  * @param <T>
  */
-public class ListaSimple< T extends Comparable<T> > {
+public class ListaSimple < T extends Comparable<T> > {
     private  Nodo<T> inicio;
 
     public ListaSimple() {
@@ -56,8 +54,6 @@ public class ListaSimple< T extends Comparable<T> > {
     	Nodo<T> actual = inicio;
     	Nodo<T> anterior = null;
     	int i = 0;
-    	
-    	
     	
     	while( actual != null && i != pos ) {
     		anterior = actual;
@@ -112,16 +108,13 @@ public class ListaSimple< T extends Comparable<T> > {
      * Elimina un elemento a partir de un Objeto dado
      * @param T Object
      */
-    public void eliminar( T dato ) {
+    public void eliminarDato( T dato ) {
     	Nodo<T> anterior = null;
     	Nodo<T> actual = inicio;
-    	
-    	int it = 0;
     	
     	while( actual != null && actual.getDato().compareTo( dato ) != 0 ) {
     		anterior = actual;
     		actual = actual.getSig();
-    		it++;
     	}
     	
     	if( actual != null ) {
@@ -131,6 +124,29 @@ public class ListaSimple< T extends Comparable<T> > {
     		else {
     			inicio = actual.getSig();
     		}
+    	}
+    }
+    
+    public void eliminarRepetidos(){
+    	this.ordenar();
+    	Nodo<T> actual = inicio;
+    	T auxiliar = null;
+    	ListaSimple<Integer> listaRepetidos = new ListaSimple<>();
+    	
+    	int i = 0;
+    	
+    	while( actual != null   ){
+    		if( auxiliar != null && auxiliar.equals( actual.getDato() ) )
+    			listaRepetidos.insertarFinal( i );
+    		else
+    			auxiliar = actual.getDato();
+    		i++;
+    		actual = actual.getSig();
+    	}
+    	
+    	Integer[] repetidos = listaRepetidos.toArray();
+    	for( i = repetidos.length-1 ; i >= 0  ; i-- ){
+    		this.eliminar( repetidos[i] );
     	}
     }
     

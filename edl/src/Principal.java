@@ -3,7 +3,62 @@ public class Principal {
 
 	public static void main(String[] args) {
 		
-		ListaSimple<Integer> lista = new ListaSimple<>();
+		ListaSimple< String > lista = new ListaSimple<>();
+		
+		
+		
+		Persona p1 = new Persona("Jose1", 80 );
+		Persona p2 = new Persona("Dario2", 40 );
+		Persona p3 = new Persona("pepe3", 70 );
+		Persona p4 = new Persona("Jose4", 11 );
+		
+		lista.insertarFinal( "aabb" );
+		lista.insertarFinal( "aabbc" );
+		lista.insertarFinal( "aabbd" );
+		lista.insertarFinal( "aabb" );
+		lista.insertarFinal( "aabbe" );
+		lista.insertarFinal( "aabbf" );
+		lista.insertarFinal( "aabb" );
+		lista.insertarFinal( "aabbg" );
+		lista.insertarFinal( "aabbf" );
+
+		lista.imprimir();
+		
+		//lista.ordenar();
+		System.out.println( "---------------- eliminar " );
+		// lista.ordenar();
+		
+		
+		lista.eliminarRepetidos();
+    	
+		
+		
+		/*
+    	for( i = 0 ; i <  ; i++ ){
+    		//System.out.println(  listaRepetidos.obtener(i) );
+    		this.eliminar( listaRepetidos.obtener(i) );
+    	}*/
+		
+		System.out.println( "elementos eliminados");
+		lista.imprimir();
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		/*
 		lista.insertarFinal( "aaaa" );
 		lista.insertarFinal( "babb" );
@@ -37,7 +92,7 @@ public class Principal {
 		lista.imprimir();
 		*/
 		
-		
+		/*
 		lista.insertarFinal( 3 );
 		lista.insertarFinal( 4 );
 		lista.insertarFinal( 6 );
@@ -59,7 +114,7 @@ public class Principal {
 		
 		System.out.println( "Cantidad de repetidos");
 		System.out.println( lista.cantidadRepetidos(  6 ) );
-		
+		*/
 	}
 
 }
